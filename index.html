@@ -1,0 +1,25 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<style>
+      .trunc {
+        width: 200px;
+        height: 190px;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 1px solid black;
+        padding: 1em;
+        line-height: 1.4em;
+      }
+    </style>
+	</head>
+  <body>
+    <div class="trunc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula cursus auctor. Phasellus blandit condimentum porttitor. Aenean sit amet ligula orci. Nullam pulvinar iaculis ante in tempor. Integer venenatis malesuada velit non accumsan. Aenean sit amet ligula orci. Nullam pulvinar iaculis ante in tempor. Integer venenatis malesuada velit non accumsan. Maecenas sollicitudin vehicula est, nec posuere nisl fermentum id. Vivamus a lobortis metus. Praesent rutrum massa eget ante egestas lobortis non iaculis ipsum. Duis vel eleifend lorem. Suspendisse viverra cursus pellentesque. Proin ante ante, lacinia quis venenatis vitae, blandit nec mi.</div>
+    <script src="truncate.js"></script>
+    <script>
+      window.onload = function() {
+        truncate(document.querySelector('.trunc'), {dir: 'v'});
+      };
+    </script>
+  </body>
+</html>
