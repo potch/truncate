@@ -29,7 +29,7 @@ function truncate(el, opts) {
     var textEl = opts.textEl || el;
     var split = [" ",""], counter, success;
     var txt, cutoff, delim;
-    var oldtext = textEl.getAttribute("oldtext") || text(textEl);
+    var oldtext = textEl.getAttribute("data-oldtext") || text(textEl);
     textEl.setAttribute("data-oldtext", oldtext);
     for (var i=0; i<split.length; i++) {
         delim = split[i];
