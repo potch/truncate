@@ -1,4 +1,4 @@
-function text(node) {
+function text(node, trim) {
     var cn = node.childNodes;
     var t='';
     if (cn.length) {
@@ -7,6 +7,9 @@ function text(node) {
         }
     } else {
         t = node.textContent;
+    }
+    if (trim) {
+        return t.replace(/^\s+|\s+$/g, "");
     }
     return t;
 }
@@ -26,10 +29,11 @@ function truncate(el, opts) {
     var scrollProp = dir == "h" ? "scrollWidth" : "scrollHeight";
     var offsetProp = dir == "h" ? "offsetWidth" : "offsetHeight";
     var truncText = opts.truncText || "&hellip;";
+    var trim = opts.trim || false;
     var textEl = opts.textEl || el;
     var split = [" ",""], counter, success;
     var txt, cutoff, delim;
-    var oldtext = textEl.getAttribute("oldtext") || text(textEl);
+    var oldtext = textEl.getAttribute("data-oldtext") || text(textEl, trim);
     textEl.setAttribute("data-oldtext", oldtext);
     for (var i=0; i<split.length; i++) {
         delim = split[i];
@@ -65,7 +69,7 @@ function truncate(el, opts) {
         }
         if (success) break;
     }
-    if (showTitle && oldtext != text(textEl)) {
+    if (showTitle && oldtext != text(textEl, trim)) {
         textEl.setAttribute("title", oldtext);
     }
 }
